@@ -1,0 +1,182 @@
+*{
+margin :0;
+padding: 0;
+box-sizing: border-box;
+height: 100%;
+
+
+
+
+}
+
+/* background for frame */
+
+.main{
+
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+ 
+}
+
+.element{
+
+
+height: 700px;
+width: 700px;
+border: 10px black solid;
+border-radius: 15px;
+background-color: aliceblue;
+display: flex;
+flex-direction: column;
+text-align: center;
+
+
+
+
+
+
+}
+
+
+
+/* header  */
+
+
+
+/* game content */
+
+
+.row{
+
+display: flex;
+justify-content: center;
+margin-top: 80px;
+
+gap: 40px;
+
+
+
+
+
+}
+
+.col{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+   
+    transition: 0.5s;
+   
+}
+
+.col:hover{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 2px black solid;
+  box-shadow: 5px 10px #888888;
+
+
+  
+    
+   
+
+   
+}
+
+
+.text {
+font-size: 25px;
+text-align: center;
+height: 50px;
+margin-top: 30px;
+    
+}
+
+
+/* game-content */
+
+
+.game-con{
+
+display:flex;
+
+justify-content: center;
+
+width: 100%;
+margin-bottom: 30px;
+gap: 100px;
+text-align: center;
+
+}
+
+
+
+
+.player{
+
+    border: 2px black solid;
+    width: 120px;
+    height:120px ;
+    display:flex;
+    flex-direction: column;
+  
+}
+
+
+
+.com{
+
+    border:2px black solid;
+    width: 120px;
+    height: 120px;
+    display:flex;
+    flex-direction: column;
+   
+    
+    
+}
+
+
+/* content of scoreboard */
+
+
+.player p{
+    font-size: 80px;
+}
+
+.com p{
+
+    font-size: 80px;
+}
+
+
+.message{
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+
+
+}
+
+.text p{
+    display: inline-block;
+    font-size: 20px;
+    height: 20px;
+}
+
+.final{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 20px;
+
+}
+
+
+

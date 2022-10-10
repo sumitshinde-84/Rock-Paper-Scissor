@@ -4,13 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>rock-paper-scicor</title>
+    
 </head>
 <body>
-    <center>
-       <h1>Rock Paper Scissor</h1>
+    <div class="main">
         
-        <button onclick="game()">Play Game</button></center>
-    <script src="script.js"></script>
+
+<div class="element">
+ 
+<div class="text"><h1>Computer Vs Human</h1>
+<br><p>let's Choose your Option</p>
+
+</div>
+
+   <div class="row">
+
+    <div  class="col col1"  ><img src="./images/rock.png" alt="" class="rock"></div>
+ <div class="col col2"  ><img src="./images/paper.png" alt="" class="paper"></div>
+<div class="col  col3" ><img src="./images/scissor.png" alt="" class="scissor"></div>
+
+
+</div>
+
+<div class="message">
+<div class="text">
+    <p id="userC">You choose : 'Rock' </p>
+    <br ><p id="comC">Computer choose : 'Paper'</p>
+    <br><p id="beat">paper beats rock</p>
+   
+    <br><p id="head" style="font-size: 20px; font-weight: bold; margin-top: 5px;"></p>
+</div>
+
+
+
+</div>
+<div class="game-con">
+
+   <div class="player">
+    
+    <h2 >YOU</h2>
+    <p id="userpointer">0</p>
+    
+    </div>
+   <div class="com">
+    
+    <h2 >COM</h2>
+    <p id="computerPointer">0</p>
+
+
+
+</div>
+
+</div>
+<p id="final"  style="text-align: center;"> </p>
+</div>
+
+        </div>
+
+
+
+        
+       
+        <script src="script.js" defer ></script>
 </body>
 </html>
