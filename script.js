@@ -1,3 +1,16 @@
+
+let userPoint=0;
+let computerPoint=0;
+let userChoice;
+let computerChoice;
+let final= document.querySelector("#final");
+let paraCom= document.querySelector('#comC')
+let com = document.querySelector(".com");
+let player = document.querySelector(".player");
+let paper = document.querySelector('.col2')
+let para= document.querySelector('#userC')
+let scissor = document.querySelector('.col3')
+
 // Genrate Random Number
 
 function genRandNo() {
@@ -6,27 +19,13 @@ function genRandNo() {
     return randNo;
 }
 
-
-let userPoint=0;
-let computerPoint=0;
-let round =0;
-let userChoice;
-let computerChoice;
-let player = document.querySelector(".player")
-let com = document.querySelector(".com")
-let final= document.querySelector("#final");
-let paraCom= document.querySelector('#comC')
-
-
 // get computer choice 
 
-function computerChoicefun() {
+function getcomputerChoice() {
 
     let randNo = genRandNo();
 
     if (randNo == 1){
-       
-
             
             paraCom.innerHTML="Computer choose : 'Rock'"
     
@@ -38,7 +37,6 @@ function computerChoicefun() {
         return 'Paper';
     }
 
-
     else if (randNo ==2)
 {     paraCom.innerHTML="Computer choose : 'Scissor'"
        return 'Scissor';
@@ -48,16 +46,15 @@ function computerChoicefun() {
 
         alert("something went wrong");
     }
+
 }
-
-
 
 
 
 // click event for options 
 
 let rock = document.querySelector('.col1')
- rock.addEventListener('click', getUserChoiceRock)
+
  rock.addEventListener('click',game1);
  rock.addEventListener('click',()=>{
 
@@ -68,68 +65,38 @@ let rock = document.querySelector('.col1')
 
 
 
-
 // paper event
 
-let paper = document.querySelector('.col2')
-paper.addEventListener('click', getUserChoicePaper)
 paper.addEventListener('click',game2);
 paper.addEventListener('click',()=>{
-
-    // message 
-
-    let para= document.querySelector('#userC')
-    para.innerHTML="your choice :'Paper'"
+para.innerHTML="your choice :'Paper'"
 })
 
 // scissor event 
 
-let scissor = document.querySelector('.col3')
-scissor.addEventListener('click', getUserChoiceScissor)
 scissor.addEventListener('click',game3);
 scissor.addEventListener('click',()=>{
-
-// message
-
-    let para= document.querySelector('#userC')
-    para.innerHTML="your choice :'Scissor'"
+para.innerHTML="your choice :'Scissor'"
 })
     
-
-
-
-
-
-
-
-
 
 // Get user choice for rock
 
 function getUserChoiceRock() {
 
-
    let userChoice = 'Rock';
-   
-    return userChoice;
-    
+    return userChoice;   
 
 }
-
-
-
 
 
 // Get user choice for paper
 
 function getUserChoicePaper() {
 
-    let userChoice = 'Paper';
-    
+    let userChoice = 'Paper';  
     return userChoice;
    
-    
- 
  }
 
 
@@ -138,17 +105,8 @@ function getUserChoicePaper() {
  function getUserChoiceScissor() {
 
     let userChoice = 'Scissor';
-    
-   
-    
     return userChoice;
-   
-    
- 
  }
-
-
-
 
 // playround function
 
@@ -156,39 +114,28 @@ function playRound(userChoice, computerChoice) {
    
     let user = document.querySelector('#userpointer')
     let computer =document.querySelector("#computerPointer");
-
-// display winner after final round
-
-    if(round==5){
-        displayWinner(userPoint, computerPoint);
-        
-    }
-
+  
 // restart game
 
+    if(userPoint==5 || computerPoint==5)
+{
 
-    if(round>5  ){
-        round=0;
-        userPoint=0;
-        computerPoint=0;
-        
-        user.innerHTML=`${userPoint}`;
-        computer.innerHTML=`${computerPoint}`
-        player.style=''
-    com.style=' '
-    
-   
-    
-    }
+    userPoint=0;
+    computerPoint=0;
+    user.innerHTML=`${userPoint}`;
+    computer.innerHTML=`${computerPoint}`
+    player.style=''
+    com.style=''
+    final.innerText=''
+}
 
-    
     // round play starts from 
 
     if (userChoice == 'Rock' && computerChoice == 'Scissor'){
         userPoint++;
         user.innerHTML=`${userPoint}`;
         computer.innerHTML=`${computerPoint}`
-        round++;    
+           
     return true;
 
 }
@@ -196,49 +143,37 @@ function playRound(userChoice, computerChoice) {
     
     else if (userChoice == 'Paper' && computerChoice == 'Rock'){
        
-        userPoint++;
+    userPoint++;
     user.innerHTML=`${userPoint}`
     computer.innerHTML=`${computerPoint}` 
-    round++  
+     
     return true;
     }
 
     else if (userChoice == 'Scissor' && computerChoice == 'Paper'){
        
-        userPoint++;
+    userPoint++;
     user.innerHTML=`${userPoint}`
     computer.innerHTML=`${computerPoint}`
-    round++
-        
+       
     return true;
     }
 
     else if (userChoice == computerChoice){
-    
-        round++;    
-    return "tie";}
+          
+    return "tie";
 
-
-     else{ 
+}
+     else { 
       computerPoint++;
       computer.innerText=`${computerPoint}`
      
-      round++;
+     
     }
-    
+
       return false;
 
-      
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -246,27 +181,15 @@ function playRound(userChoice, computerChoice) {
 
 function game1( ) {
 
-
-    
-
-    
-
- 
-
     let userChoice = getUserChoiceRock();
-        let computerChoice = computerChoicefun();
-    
-
-
+    let computerChoice = getcomputerChoice();
 
     // audio on click
 
     const audio = new Audio("audio/clicked.wav");
         audio.play();
-     
     
-             
-             
+        
             let result = playRound(userChoice, computerChoice);
             let beat = document.querySelector('#beat') 
             let head = document.querySelector('#head');
@@ -289,26 +212,18 @@ function game1( ) {
              head.innerHTML= `yeahh It's Tie`
             }
           
-     
-        
-     
-
+            if(userPoint==5 || computerPoint==5){
+                displayWinner(userPoint, computerPoint);
+            
+            } 
 }
-
 
 // function for paper click
 
 function game2( ) {
 
-
-    
-
-    
-
-
-
     let  userChoice = getUserChoicePaper();
-    let computerChoice = computerChoicefun();
+    let computerChoice = getcomputerChoice();
 
 
      // audio on click
@@ -316,7 +231,6 @@ function game2( ) {
      const audio = new Audio("audio/clicked.wav");
      audio.play();
 
-  
     let result = playRound(userChoice, computerChoice);
     let beat = document.querySelector('#beat') 
     let head = document.querySelector('#head');
@@ -340,7 +254,10 @@ function game2( ) {
      
     }
     
-
+    if(userPoint==5 || computerPoint==5){
+        displayWinner(userPoint, computerPoint);
+    
+    } 
 
      
         
@@ -353,20 +270,12 @@ function game2( ) {
 function game3( ) {
 
 
-    
-
-    
-
-
-   
     let userChoice = getUserChoiceScissor();
-    let computerChoice = computerChoicefun();
-
+    let computerChoice = getcomputerChoice();
 
     let result = playRound(userChoice, computerChoice);
     let beat = document.querySelector('#beat') 
     let head = document.querySelector('#head');
-
 
  // audio on click
 
@@ -391,7 +300,10 @@ function game3( ) {
      head.innerHTML= `yeahh It's Tie`
     }
   
+    if(userPoint==5 || computerPoint==5){
+        displayWinner(userPoint, computerPoint);
     
+    } 
     
 }
 
@@ -400,29 +312,26 @@ function game3( ) {
 
 
 function displayWinner(userPoint, computerPoint) {
-
-
+    
     if (userPoint > computerPoint) {
 
-        let player = document.querySelector(".player")
-        player.style='box-shadow:10px 5px gold;'
+        
+        let player = document.querySelector(".player");
+        player.style='box-shadow:10px 5px gold; '
         const audio2 = new Audio("audio/win.mp3");
          audio2.play();
-         
          final.innerText='You Win Congratulation..'
-         final.style='font-size:30px'
-         
+         final.style='font-size:30px'   
         
     } 
     else if (userPoint < computerPoint) {
-       
+  
         com.style='box-shadow:10px 5px gold; '
         const audio3 = new Audio("audio/lose.wav");
          audio3.play();
          final.innerText='You loose.....'
          final.style='font-size:30px'
       
-   
     }
 
     else {
@@ -433,8 +342,11 @@ function displayWinner(userPoint, computerPoint) {
          final.style='font-size:30px'
         
     }
-
     
 }
+
+
+
+
 
 
